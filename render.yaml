@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bloggt
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist/bloggt/browser
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html 

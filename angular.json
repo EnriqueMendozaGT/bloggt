@@ -36,11 +36,11 @@
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "outputMode": "server",
+            "outputMode": "static",
             "ssr": {
               "entry": "src/server.ts"
             },
-            "prerender": false
+            "prerender": true
           },
           "configurations": {
             "production": {

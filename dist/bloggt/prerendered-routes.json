@@ -1,3 +1,7 @@
 {
-  "routes": {}
+  "routes": {
+    "/": {},
+    "/noticias": {},
+    "/ultimas-noticias": {}
+  }
 }
