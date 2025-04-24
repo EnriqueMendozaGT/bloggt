@@ -1,6 +1,7 @@
 {
   "name": "bloggt",
   "version": "0.0.0",
+  "outputPath": "dist/bloggt",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
