@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<main class="main-content">
+  <!-- Banner de noticias destacadas -->
+  <section class="featured-banner" *ngIf="featuredNews.length > 0">
+    <div class="container">
+      <div class="featured-slider">
+        <div class="featured-slide" *ngFor="let news of featuredNews">
+          <div class="featured-image" [style.backgroundImage]="'url(' + news.imageUrl + ')'">
+            <div class="featured-content">
+              <span class="category">{{ news.category }}</span>
+              <h2>{{ news.title }}</h2>
+              <p>{{ news.summary }}</p>
+              <a [routerLink]="['/noticias', news.id]" class="read-more">Leer más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Sección de categorías -->
+    <section class="categories-section">
+      <h2 class="section-title">Categorías Populares</h2>
+      <div class="categories">
+        <div class="category-card">
+          <a [routerLink]="['/noticias']" [queryParams]="{categoria: 'Tecnología'}">
+            <div class="category-icon">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3>Tecnología</h3>
+          </a>
+        </div>
+        <div class="category-card">
+          <a [routerLink]="['/noticias']" [queryParams]="{categoria: 'Desarrollo'}">
+            <div class="category-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Desarrollo</h3>
+          </a>
+        </div>
+        <div class="category-card">
+          <a [routerLink]="['/noticias']" [queryParams]="{categoria: 'Ciencia'}">
+            <div class="category-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <h3>Ciencia</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Últimas noticias -->
+    <section class="latest-news-section">
+      <div class="section-header">
+        <h2 class="section-title">Últimas Noticias</h2>
+        <a [routerLink]="['/ultimas-noticias']" class="view-all">Ver todas</a>
+      </div>
+      
+      <div class="news-grid">
+        <div class="news-card" *ngFor="let news of latestNews">
+          <div class="news-image" [style.backgroundImage]="'url(' + news.imageUrl + ')'">
+            <span class="category">{{ news.category }}</span>
+          </div>
+          <div class="news-content">
+            <h3>{{ news.title }}</h3>
+            <p>{{ news.summary }}</p>
+            <div class="news-meta">
+              <span class="date">{{ news.publishDate | date:'dd/MM/yyyy' }}</span>
+              <span class="author">Por {{ news.author }}</span>
+            </div>
+            <a [routerLink]="['/noticias', news.id]" class="read-more">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Componente de últimas noticias (widget) -->
+    <app-latest-news></app-latest-news>
+  </div>
+</main>
+
+<app-footer></app-footer>

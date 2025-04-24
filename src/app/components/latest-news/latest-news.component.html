@@ -1,0 +1,20 @@
+<section class="latest-news-widget">
+  <h2 class="widget-title">Últimas Publicaciones</h2>
+  
+  <div class="news-list">
+    <div class="news-item" *ngFor="let news of latestNews">
+      <div class="news-thumbnail" [style.backgroundImage]="'url(' + news.imageUrl + ')'"></div>
+      <div class="news-content">
+        <h3><a [routerLink]="['/noticias', news.id]">{{ news.title }}</a></h3>
+        <div class="news-meta">
+          <span class="date">{{ news.publishDate | date:'dd/MM/yyyy' }}</span>
+          <span class="views"><i class="fas fa-eye"></i> {{ news.views }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="view-all-wrapper">
+    <a [routerLink]="['/ultimas-noticias']" class="view-all-btn">Ver todas las noticias</a>
+  </div>
+</section>
